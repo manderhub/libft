@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/11 13:43:42 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/11 16:50:15 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,38 @@ int main(void)
 	assert(isprint('\n') == ft_isprint('\n'));
 	printf("ft_isprint:	A-OKAY!\n");
 	
+	// test ft_toupper
+	printf("ft_toupper:	running tests...\n");
+	assert(toupper(-5) == ft_toupper(-5));
+	assert(toupper(-1) == ft_toupper(-1));
+	assert(toupper(31) == ft_toupper(31));
+	assert(toupper(32) == ft_toupper(32));
+	assert(toupper(96) == ft_toupper(96));
+	assert(toupper(97) == ft_toupper(97));
+	assert(toupper(126) == ft_toupper(126));
+	assert(toupper(127) == ft_toupper(127));
+	assert(toupper(122) == ft_toupper(122));
+	assert(toupper(123) == ft_toupper(123));
+	assert(toupper('a') == ft_toupper('a'));
+	assert(toupper('\n') == ft_toupper('\n'));
+	printf("ft_toupper:	A-OKAY!\n");
+
+	// test ft_tolower
+	printf("ft_tolower:	running tests...\n");
+	assert(tolower(-5) == ft_tolower(-5));
+	assert(tolower(-1) == ft_tolower(-1));
+	assert(tolower(31) == ft_tolower(31));
+	assert(tolower(32) == ft_tolower(32));
+	assert(tolower(64) == ft_tolower(64));
+	assert(tolower(65) == ft_tolower(65));
+	assert(tolower(90) == ft_tolower(90));
+	assert(tolower(91) == ft_tolower(91));
+	assert(tolower(69) == ft_tolower(69));
+	assert(tolower(100) == ft_tolower(100));
+	assert(tolower('a') == ft_tolower('a'));
+	assert(tolower('\n') == ft_tolower('\n'));
+	printf("ft_tolower:	A-OKAY!\n");
+	
 	// test ft_strlen
 	printf("ft_strlen:	running tests...\n");
 	assert(strlen("Bonjour") == ft_strlen("Bonjour"));
@@ -129,6 +161,19 @@ int main(void)
 	assert(strlen("	") == ft_strlen("	"));
 	assert(strlen("") == ft_strlen(""));
 	printf("ft_strlen:	A-OKAY!\n");
+
+	// test ft_memset
+	void *buf_1 = malloc(sizeof(char) * 255);
+	void *buf_2 = malloc(sizeof(char) * 255);
+	printf("ft_memset:	running tests...\n");
+	assert(memcmp(memset(buf_1, 65, 15), ft_memset(buf_2, 65, 15), 15) == 0);
+	assert(memcmp(memset(buf_1, 65, 0), ft_memset(buf_2, 65, 0), 0) == 0);
+	assert(memcmp(memset(buf_1, 43, 5), ft_memset(buf_2, 43, 5), 5) == 0);
+	assert(memcmp(memset(buf_1, -1, 5), ft_memset(buf_2, -1, 5), 5) == 0);
+	assert(memcmp(memset(buf_1, 128, 5), ft_memset(buf_2, 128, 5), 5) == 0);
+	assert(memcmp(memset(buf_1, 420, 5), ft_memset(buf_2, 420, 5), 5) == 0);
+	assert(memcmp(memset(buf_1, 50000, 5), ft_memset(buf_2, 50000, 5), 5) == 0);
+	printf("ft_memset:	A-OKAY!\n");
 	
 	return (0);
 }
