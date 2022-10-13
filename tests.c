@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/11 16:50:15 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/13 14:09:31 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,6 +174,45 @@ int main(void)
 	assert(memcmp(memset(buf_1, 420, 5), ft_memset(buf_2, 420, 5), 5) == 0);
 	assert(memcmp(memset(buf_1, 50000, 5), ft_memset(buf_2, 50000, 5), 5) == 0);
 	printf("ft_memset:	A-OKAY!\n");
+	
+	// test ft_bzero
+	printf("ft_bzero:	running tests...\n");
+	bzero(buf_1, 1);
+	ft_bzero(buf_2, 1);
+	assert(memcmp(buf_1, buf_2, 255) == 0);
+	bzero(buf_1, 2);
+	ft_bzero(buf_2, 2);
+	assert(memcmp(buf_1, buf_2, 255) == 0);
+	bzero(buf_1, 15);
+	ft_bzero(buf_2, 15);
+	assert(memcmp(buf_1, buf_2, 255) == 0);
+	bzero(buf_1, 255);
+	ft_bzero(buf_2, 255);
+	assert(memcmp(buf_1, buf_2, 255) == 0);
+	printf("ft_bzero:	A-OKAY!\n");
+
+	// test ft_strncmp
+	printf("ft_strncmp:	running tests...\n");
+	assert(strncmp("a", "a", 0) == ft_strncmp("a", "a", 0));
+	assert(strncmp("aaa", "aaa", 3) == ft_strncmp("aaa", "aaa", 3));
+	assert(strncmp("aa", "ab", 2) == ft_strncmp("aa", "ab", 2));
+	assert(strncmp("aa", "ab", 3) == ft_strncmp("aa", "ab", 3));
+	assert(strncmp("a", "", 1) == ft_strncmp("a", "", 1));
+	assert(strncmp("", "a", 1) == ft_strncmp("", "a", 1));
+	assert(strncmp("aa", "a", 1) == ft_strncmp("aa", "a", 1));
+	assert(strncmp("aa", "a", 2) == ft_strncmp("aa", "a", 2));
+	assert(strncmp("a", "aa", 1) == ft_strncmp("a", "aa", 1));
+	assert(strncmp("a", "aa", 2) == ft_strncmp("a", "aa", 2));
+	assert(strncmp("", "", 1) == ft_strncmp("", "", 1));
+	assert(strncmp("", "", 0) == ft_strncmp("", "", 0));
+	assert(strncmp("aaaa", "aaaa", -1) == ft_strncmp("aaaa", "aaaa", -1));
+	assert(strncmp("Bonjour Mario!", "Bonjour, Mario!", 15) == ft_strncmp("Bonjour Mario!", "Bonjour, Mario!", 15));
+	assert(strncmp("Bonjour Mario!", "Bonjour, Mario!", 5) == ft_strncmp("Bonjour Mario!", "Bonjour, Mario!", 5));
+	assert(strncmp("Bonjour Mario!", "Bonjour, Mario!", 500) == ft_strncmp("Bonjour Mario!", "Bonjour, Mario!", 500));
+	assert(strncmp("Bonjour Mario!", "Bonjour Mario!", 5) == ft_strncmp("Bonjour Mario!", "Bonjour Mario!", 5));
+	assert(strncmp("Bonjour Mario!", "Bonjour Mario!", -500) == ft_strncmp("Bonjour Mario!", "Bonjour Mario!", -500));
+	assert(strncmp("", "", 1) == ft_strncmp("", "", 1));
+	printf("ft_strncmp:	A-OKAY!\n");
 	
 	return (0);
 }
