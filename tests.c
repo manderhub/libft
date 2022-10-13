@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/13 14:09:31 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/13 18:02:54 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,6 +213,14 @@ int main(void)
 	assert(strncmp("Bonjour Mario!", "Bonjour Mario!", -500) == ft_strncmp("Bonjour Mario!", "Bonjour Mario!", -500));
 	assert(strncmp("", "", 1) == ft_strncmp("", "", 1));
 	printf("ft_strncmp:	A-OKAY!\n");
+
+	// test ft_strlcpy
+	printf("ft_strlcpy:	running tests...\n");
+	void *buf_3 = malloc(sizeof(char) * 255);
+	void *buf_4 = malloc(sizeof(char) * 255);
+	assert(strlcpy(buf_3, "Bonjour!", 9) == ft_strlcpy(buf_3, "Bonjour!", 9));
+	assert(memcmp(buf_3, buf_4, 255));
+	printf("ft_strlcpy:	A-OKAY!\n");
 	
 	return (0);
 }
