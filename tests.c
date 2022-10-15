@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/13 18:02:54 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/15 18:17:39 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,6 +221,41 @@ int main(void)
 	assert(strlcpy(buf_3, "Bonjour!", 9) == ft_strlcpy(buf_3, "Bonjour!", 9));
 	assert(memcmp(buf_3, buf_4, 255));
 	printf("ft_strlcpy:	A-OKAY!\n");
-	
+
+	// test ft_atoi
+	printf("ft_atoi:	running tests...\n");
+	assert(atoi("") == ft_atoi(""));
+	assert(atoi("0") == ft_atoi("0"));
+	assert(atoi("00") == ft_atoi("00"));
+	assert(atoi("-0") == ft_atoi("-0"));
+	assert(atoi("-000") == ft_atoi("-000"));
+	assert(atoi("0a") == ft_atoi("0a"));
+	assert(atoi("1") == ft_atoi("1"));
+	assert(atoi("1a") == ft_atoi("1a"));
+	assert(atoi("-1") == ft_atoi("-1"));
+	assert(atoi("-1a") == ft_atoi("-1a"));
+	assert(atoi("10") == ft_atoi("10"));
+	assert(atoi("100") == ft_atoi("100"));
+	assert(atoi("222") == ft_atoi("222"));
+	assert(atoi("-222") == ft_atoi("-222"));
+	assert(atoi("2c22") == ft_atoi("2c22"));
+	assert(atoi("-2c22") == ft_atoi("-2c22"));
+	assert(atoi("22_2") == ft_atoi("22_2"));
+	assert(atoi(" 222") == ft_atoi(" 222"));
+	assert(atoi("_222") == ft_atoi("_222"));
+	assert(atoi("+222") == ft_atoi("+222"));
+	assert(atoi("\t222") == ft_atoi("\t222"));
+	assert(atoi("\t-222") == ft_atoi("\t-222"));
+	assert(atoi("\t-\t222") == ft_atoi("\t-\t222"));
+	assert(atoi(" - 222") == ft_atoi(" - 222"));
+	assert(atoi(" + 222") == ft_atoi(" + 222"));
+	assert(atoi("2\t22") == ft_atoi("2\t22"));
+	assert(atoi("22 2") == ft_atoi("22 2"));
+	assert(atoi("\t22\t2") == ft_atoi("\t22\t2"));
+	assert(atoi(" +a222") == ft_atoi(" +a222"));
+	assert(atoi(" +a222") == ft_atoi(" +a222"));
+	assert(atoi(" +a222") == ft_atoi(" +a222"));
+	printf("ft_atoi:	A-OKAY!\n");
+
 	return (0);
 }

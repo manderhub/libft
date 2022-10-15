@@ -1,4 +1,4 @@
-CC=gcc
+CC=cc
 NAME=tests
 CFLAGS=-Wall -Werror -Wextra
 DEPS=libft.h
@@ -22,6 +22,9 @@ OBJ= ft_bzero.o ft_isalpha.o ft_isalnum.o ft_isascii.o ft_isdigit.o ft_isprint.o
 #and writes the output to a file called tests ($@ is special macro standing for left side of :)
 $(NAME): $(OBJ)
 	$(CC) $(CFLAGS) -o $@ $^
+
+debug: $(OBJ)
+	$(CC) $(CFLAGS) -g -o $@ $^
 
 clean:
 	rm -f *.o
