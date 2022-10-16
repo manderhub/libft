@@ -4,7 +4,7 @@ CFLAGS=-Wall -Werror -Wextra
 DEPS=libft.h
 OBJ= ft_bzero.o ft_isalpha.o ft_isalnum.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_memset.o ft_strlcat.o ft_strlen.o \
 	ft_strncmp.o ft_tolower.o ft_toupper.o ft_strlcpy.o ft_strchr.o ft_strrchr.o ft_memchr.o ft_memcmp.o ft_strnstr.o \
-	ft_atoi.o ft_calloc.o ft_strdup.o tests.o
+	ft_atoi.o ft_calloc.o ft_strdup.o ft_memmove.o tests.o
 
 #Rule that applies to all files ending in .o suffix.
 #The rule depends on the .c version of the file and the .h files included in DEPS macro (=dependency list)
@@ -28,4 +28,4 @@ debug: $(OBJ)
 
 clean:
 	rm -f *.o
-	rm -f $(NAME), debug
+	rm -f $(NAME) debug

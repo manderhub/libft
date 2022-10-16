@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/15 18:17:39 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/16 16:29:31 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,12 +214,33 @@ int main(void)
 	assert(strncmp("", "", 1) == ft_strncmp("", "", 1));
 	printf("ft_strncmp:	A-OKAY!\n");
 
+	// test ft_memmove
+	printf("ft_memmove:	running tests...\n");
+	char str_1[] = "Bonjour!";
+	char str_2[] = "Bonjour!";
+	assert(memcmp(memmove(str_1 + 1, str_1, 2), ft_memmove(str_2 + 1, str_2, 2), strlen(str_1)) == 0);
+	assert(memcmp(memmove(str_1 + 0, str_1, 2), ft_memmove(str_2 + 0, str_2, 2), strlen(str_1)) == 0);
+	char str_4[] = "Bonjour!";
+	char str_5[] = "Bonjour!";
+	//printf("%s\n",memmove(str_4 + 2, str_4, 2));
+	//printf("%s\n",ft_memmove(str_5 + 2, str_5, 2));
+	assert(memcmp(memmove(str_4 + 2, str_4, 2), ft_memmove(str_5 + 2, str_5, 2), strlen(str_4)) == 0);
+	char str_6[] = "Bonjour!";
+	char str_7[] = "Bonjour!";
+	assert(memcmp(memmove(str_6 + 1, str_6, 3), ft_memmove(str_7 + 1, str_7, 3), strlen(str_7)) == 0);
+	char str_8[] = "Bonjour!";
+	char str_9[] = "Bonjour!";
+	printf("%s\n",memmove(str_8, str_8 + 1, 2));
+	printf("%s\n",ft_memmove(str_9, str_9 + 1, 2));
+	assert(memcmp(memmove(str_8, str_8 + 1, 3), ft_memmove(str_9, str_9 + 1, 3), strlen(str_8)) == 0);
+	printf("ft_memmove:	A-OKAY!\n");
+
 	// test ft_strlcpy
 	printf("ft_strlcpy:	running tests...\n");
-	void *buf_3 = malloc(sizeof(char) * 255);
-	void *buf_4 = malloc(sizeof(char) * 255);
-	assert(strlcpy(buf_3, "Bonjour!", 9) == ft_strlcpy(buf_3, "Bonjour!", 9));
-	assert(memcmp(buf_3, buf_4, 255));
+	void *buf_5 = malloc(sizeof(char) * 255);
+	void *buf_6 = malloc(sizeof(char) * 255);
+	assert(strlcpy(buf_5, "Bonjour!", 9) == ft_strlcpy(buf_6, "Bonjour!", 9));
+	assert(memcmp(buf_5, buf_6, 255) == 0);
 	printf("ft_strlcpy:	A-OKAY!\n");
 
 	// test ft_atoi
