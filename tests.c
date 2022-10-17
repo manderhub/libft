@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/17 15:49:31 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/17 17:54:23 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -318,6 +318,16 @@ int main(void)
 	printf("%s\n", ft_strtrim("_+----_+Bon--jour!++-+", "_+-"));
 	printf("%s\n", ft_strtrim("__Bonjour!++", ""));
 	printf("ft_strtrim:	A-OKAY!\n");
-	
+
+	// test ft_split
+	printf("ft_split:	running tests...\n");
+	char **result = ft_split(";a;b;c;", ';');
+	printf("%s\n", *(result + 0));
+	printf("%s\n", *(result + 1));
+	printf("%s\n", *(result + 2));	
+	printf("%s\n", *(result + 3));	
+	printf("%s\n", *(result + 4));	
+	printf("%s\n", *(result + 5));	
+	printf("ft_split:	A-OKAY!\n");
 	return (0);
 }
