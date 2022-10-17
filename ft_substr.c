@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 16:47:19 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/17 10:31:46 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/17 13:00:31 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	actual_len = len;
 	if (ft_strlen(s) - start < len)
 		actual_len = ft_strlen(s) - start;
-	substring = malloc((len + 1) * sizeof(char));
+	substring = malloc((actual_len + 1) * sizeof(char));
 	if (substring == NULL)
 		return (NULL);
 	i = 0;
 	while (i < len)
 	{
-		*(substring + i) = *(substring + start + i);
+		*(substring + i) = *(s + start + i);
 		i++;
 	}
 	*(substring + i) = '\0';

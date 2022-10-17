@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/16 16:29:31 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/17 15:49:31 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -278,5 +278,46 @@ int main(void)
 	assert(atoi(" +a222") == ft_atoi(" +a222"));
 	printf("ft_atoi:	A-OKAY!\n");
 
+	// test ft_substr
+	printf("ft_substr:	running tests...\n");
+	assert(memcmp("Bonjour!", ft_substr("Bonjour!", 0, 8), 9) == 0);
+	assert(memcmp("Bon", ft_substr("Bonjour!", 0, 3), 4) == 0);
+	assert(memcmp("jour", ft_substr("Bonjour!", 3, 4), 5) == 0);
+	assert(memcmp("Bonjour!", ft_substr("Bonjour!", 0, 100), 9) == 0);
+	assert(memcmp("", ft_substr("Bonjour!", 0, 0), 1) == 0);
+	assert(memcmp("", ft_substr("", 0, 1), 1) == 0);
+	assert(memcmp("", ft_substr("Bonjour!", 8, 5), 1) == 0);
+	assert(memcmp("!", ft_substr("Bonjour!", 7, 5), 2) == 0);
+	printf("ft_substr:	A-OKAY!\n");
+
+	// test ft_strjoin
+	printf("ft_strjoin:	running tests...\n");
+	assert(memcmp("Bonjour, Mario!", ft_strjoin("Bonjour,", " Mario!"), 16) == 0);
+	assert(memcmp("Bonjour,", ft_strjoin("Bonjour,", ""), 9) == 0);
+	assert(memcmp("Mario!", ft_strjoin("", "Mario!"), 7) == 0);
+	assert(memcmp("", ft_strjoin("", ""), 1) == 0);
+	assert(memcmp("ma", ft_strjoin("m", "a"), 3) == 0);
+	assert(memcmp("m", ft_strjoin("m", ""), 2) == 0);
+	assert(memcmp("a", ft_strjoin("", "a"), 2) == 0);
+	printf("ft_strjoin:	A-OKAY!\n");
+
+	// test ft_strtrim
+	printf("ft_strtrim:	running tests...\n");
+	assert(memcmp("Bonjour!", ft_strtrim("Bonjour!", "_"), 9) == 0);
+	assert(memcmp("Bonjour!", ft_strtrim("_Bonjour!", "_"), 9) == 0);
+	assert(memcmp("Bonjour!", ft_strtrim("___Bonjour!", "_"), 9) == 0);
+	assert(memcmp("Bonjour!", ft_strtrim("_+Bonjour!", "+_"), 9) == 0);
+	assert(memcmp("Bonjour!", ft_strtrim("_+Bonjour!", "_+"), 9) == 0);
+	assert(memcmp("Bonjour!", ft_strtrim("_+Bonjour!", "+_-"), 9) == 0);
+	assert(memcmp("", ft_strtrim("_+Bonjour!", "+_"), 1));
+	assert(memcmp("__Bonjour!++", ft_strtrim("__Bonjour!++", ""), 13) == 0);
+	printf("%s\n", ft_strtrim("Bonjour!_", "_"));
+	printf("%s\n", ft_strtrim("Bonjour!___", "_"));
+	printf("%s\n", ft_strtrim("_+Bonjour!+", "_+-"));
+	printf("%s\n", ft_strtrim("_+_+Bonjour!+++", "_+-"));
+	printf("%s\n", ft_strtrim("_+----_+Bon--jour!++-+", "_+-"));
+	printf("%s\n", ft_strtrim("__Bonjour!++", ""));
+	printf("ft_strtrim:	A-OKAY!\n");
+	
 	return (0);
 }

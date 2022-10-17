@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:52:50 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/17 12:09:03 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/17 15:18:56 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ static int	ft_inset(char c, char const *set, size_t set_len)
 */
 static size_t	ft_num_trimmable(char const *s1, char const *set, int left)
 {
-	int		i;
-	size_t	len_s1;
-	size_t	len_set;
-	size_t	num_trimmable;
+	int	i;
+	int	len_s1;
+	int	len_set;
+	int	num_trimmable;
 
 	len_s1 = ft_strlen(s1);
-	len_set = ft_strlen(s1);
+	len_set = ft_strlen(set);
 	num_trimmable = 0;
 	if (left)
 	{
@@ -62,7 +62,7 @@ static size_t	ft_num_trimmable(char const *s1, char const *set, int left)
 	else
 	{
 		i = len_s1 - 1;
-		while (i >= 0 && ft_inset(*(s1 + i++), set, len_set))
+		while (i >= 0 && ft_inset(*(s1 + i--), set, len_set))
 			num_trimmable++;
 	}
 	return (num_trimmable);
@@ -78,8 +78,8 @@ static size_t	ft_num_trimmable(char const *s1, char const *set, int left)
 */
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	size_t	left;
-	size_t	right;
+	unsigned int	left;
+	unsigned int	right;
 	size_t	len_trimmed;
 
 	left = ft_num_trimmable(s1, set, 1);
