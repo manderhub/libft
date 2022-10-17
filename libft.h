@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:50 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/16 14:49:29 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/17 12:09:47 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,6 @@ char	*ft_strchr(const char *s, int c);
  int	ft_atoi(const char *str);
 void	*ft_calloc(size_t count, size_t size);
  char	*ft_strdup(const char *s1);
+ char	*ft_substr(char const *s, unsigned int start, size_t len);
+ char	*ft_strjoin(char const *s1, char const *s2);
+ char	*ft_strtrim(char const *s1, char const *set);
