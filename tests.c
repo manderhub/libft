@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/18 10:53:37 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/18 13:16:50 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -345,5 +345,10 @@ int main(void)
 	printf("%s\n", ft_itoa(-0));
 	printf("ft_itoa:	A-OKAY!\n");
 
+	// test ft_putchar_fd
+	printf("ft_putchar_fd:	running tests...\n");
+	ft_putchar_fd('m', 1);
+	ft_putchar_fd('\n', 1);
+	printf("ft_putchar_fd:	A-OKAY!\n");
 	return (0);
 }
