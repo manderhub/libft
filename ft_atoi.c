@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 15:23:30 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/15 18:23:58 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:48:18 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,8 @@ static int	ft_isspace(int c)
 	unsigned int	c_ui;
 
 	c_ui = (unsigned int)(c);
-	return (c_ui == '\t' || c_ui == '\n' || c_ui == '\v' || c_ui == '\f' || c_ui == '\r' || c_ui == ' ');
+	return (c_ui == '\t' || c_ui == '\n' || c_ui == '\v'
+		|| c_ui == '\f' || c_ui == '\r' || c_ui == ' ');
 }
 
 /*

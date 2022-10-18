@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 12:55:20 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/15 13:23:01 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:54:03 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 	returns:	pointer to located character or NULL if character is not
 				found in string	
 */
- char	*ft_strrchr(const char *s, int c)
- {
+char	*ft_strrchr(const char *s, int c)
+{
 	size_t	i;
 
 	i = ft_strlen(s);
@@ -33,5 +33,4 @@
 		i--;
 	}
 	return (NULL);
- }
- 
+}

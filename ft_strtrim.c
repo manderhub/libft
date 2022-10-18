@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:52:50 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/17 15:18:56 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:50:54 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 {
 	unsigned int	left;
 	unsigned int	right;
-	size_t	len_trimmed;
+	size_t			len_trimmed;
 
 	left = ft_num_trimmable(s1, set, 1);
 	right = ft_num_trimmable(s1, set, 0);

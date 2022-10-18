@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/18 13:16:50 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:15:10 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -350,5 +350,33 @@ int main(void)
 	ft_putchar_fd('m', 1);
 	ft_putchar_fd('\n', 1);
 	printf("ft_putchar_fd:	A-OKAY!\n");
+
+	// test ft_putstr_fd
+	printf("ft_putstr_fd:	running tests...\n");
+	ft_putstr_fd("m\n", 1);
+	ft_putstr_fd("Mario\n", 1);
+	ft_putstr_fd("Bonjour, Mario!\n", 1);
+	printf("ft_putstr_fd:	A-OKAY!\n");
+
+	// test ft_putendl_fd
+	printf("ft_putendl_fd:	running tests...\n");
+	ft_putendl_fd("m", 1);
+	ft_putendl_fd("Mario", 1);
+	ft_putendl_fd("Bonjour, Mario!", 1);
+	printf("ft_putendl_fd:	A-OKAY!");
+
+	// test ft_putnbr_fd
+	printf("ft_putnbr_fd:	running tests...\n");
+	ft_putnbr_fd(5, 1);
+	ft_putendl_fd("", 1);
+	ft_putnbr_fd(123456, 1);
+	ft_putendl_fd("", 1);
+	ft_putnbr_fd(-321, 1);
+	ft_putendl_fd("", 1);
+	ft_putnbr_fd(0, 1);
+	ft_putendl_fd("", 1);
+	ft_putnbr_fd(-0, 1);
+	ft_putendl_fd("", 1);
+	printf("ft_putnbr_fd:	A-OKAY!");
 	return (0);
 }

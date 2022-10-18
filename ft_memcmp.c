@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 13:45:17 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/17 12:53:04 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/18 14:49:59 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	const unsigned char	*s1_char;
 	const unsigned char	*s2_char;
-	
+
 	if (n == 0)
-		return 0;
+		return (0);
 	s1_char = (const unsigned char *)(s1);
 	s2_char = (const unsigned char *)(s2);
 	while (n--)
