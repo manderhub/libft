@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/18 17:55:07 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/18 19:01:05 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -384,6 +384,37 @@ int main(void)
 	printf("%s\n", (char *)ft_memchr("Bonjour!", 'o', 9));
 	printf("%s\n", (char *)ft_memchr("Bonjour!", '\0', 9));
 	printf("ft_memchr:	A-OKAY!");
+	
+	// test ft_memcmp
+	printf("ft_memcmp:	running tests...\n");
+	assert(memcmp("", "", 1) == ft_memcmp("", "", 1));
+	assert(memcmp("", "", 10) == ft_memcmp("", "", 10));
+	
+	printf("%d\n", memcmp("\xff\xaa\xde\x12", "\xff\xaa\xde\x12MACOSAAAAA", 4));
+	printf("%d\n", ft_memcmp("\xff\xaa\xde\x12", "\xff\xaa\xde\x12MACOSAAAAA", 4));
+
+	
+	printf("%d\n", memcmp("aaa", "c", -100));
+	printf("%d\n", ft_memcmp("aaa", "c", 1));
+
+	
+	printf("%d\n", memcmp("a", "", 1));
+	printf("%d\n", memcmp("", "a", 1));
+	printf("%d\n", memcmp("a", "b", 1));
+	printf("%d\n", memcmp("a", "c", 1));
+	printf("%d\n", ft_memcmp("a", "", 1));
+	printf("%d\n", ft_memcmp("", "a", 1));
+	printf("%d\n", ft_memcmp("a", "b", 1));
+	assert(ft_memcmp("a", "", 1) > 0);
+	assert(ft_memcmp("a", "", 10) > 0);
+	assert(ft_memcmp("", "a", 1) < 0);
+	assert(ft_memcmp("", "a", 10) < 0);
+	assert(memcmp("aaa", "aaa", 4) == ft_memcmp("aaa", "aaa", 4));
+	assert(memcmp("aaa", "aaa", 10) == ft_memcmp("aaa", "aaa", 10));
+	assert(memcmp("aaa", "b", 1) == ft_memcmp("aaa", "b", 1));
+	assert(memcmp("aaa", "b", 10) == ft_memcmp("aaa", "b", 10));
+	assert(memcmp("aaa", "ab", 10) == ft_memcmp("aaa", "ab", 10));
+	printf("ft_memcmp:	A-OKAY!");
 	
 	return (0);
 }
