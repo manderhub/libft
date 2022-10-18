@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/18 10:01:41 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/18 10:53:37 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -329,5 +329,21 @@ int main(void)
 	//printf("%s\n", *(result + 4));
 	//printf("%s\n", *(result + 5));
 	printf("ft_split:	A-OKAY!\n");
+
+	// test ft_itoa
+	printf("ft_itoa:	running tests...\n");
+	printf("%s\n", ft_itoa(5));
+	printf("%s\n", ft_itoa(-5));
+	printf("%s\n", ft_itoa(55));
+	printf("%s\n", ft_itoa(555));
+	printf("%s\n", ft_itoa(-555));
+	printf("%s\n", ft_itoa(-1));
+	printf("%s\n", ft_itoa(-10));
+	printf("%s\n", ft_itoa(1));
+	printf("%s\n", ft_itoa(10));
+	printf("%s\n", ft_itoa(0));
+	printf("%s\n", ft_itoa(-0));
+	printf("ft_itoa:	A-OKAY!\n");
+
 	return (0);
 }
