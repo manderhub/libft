@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/17 17:54:23 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/18 10:01:41 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -321,13 +321,13 @@ int main(void)
 
 	// test ft_split
 	printf("ft_split:	running tests...\n");
-	char **result = ft_split(";a;b;c;", ';');
+	char **result = ft_split("aa;bb;ccc", ';');
 	printf("%s\n", *(result + 0));
 	printf("%s\n", *(result + 1));
-	printf("%s\n", *(result + 2));	
-	printf("%s\n", *(result + 3));	
-	printf("%s\n", *(result + 4));	
-	printf("%s\n", *(result + 5));	
+	printf("%s\n", *(result + 2));
+	printf("%s\n", *(result + 3));
+	//printf("%s\n", *(result + 4));
+	//printf("%s\n", *(result + 5));
 	printf("ft_split:	A-OKAY!\n");
 	return (0);
 }
