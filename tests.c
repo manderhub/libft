@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/18 17:29:42 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/18 17:55:07 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -378,5 +378,12 @@ int main(void)
 	ft_putnbr_fd(-0, 1);
 	ft_putendl_fd("", 1);
 	printf("ft_putnbr_fd:	A-OKAY!");
+
+	// test ft_memchr
+	printf("ft_memchr:	running tests...\n");
+	printf("%s\n", (char *)ft_memchr("Bonjour!", 'o', 9));
+	printf("%s\n", (char *)ft_memchr("Bonjour!", '\0', 9));
+	printf("ft_memchr:	A-OKAY!");
+	
 	return (0);
 }
