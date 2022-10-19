@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 12:17:24 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/18 12:41:19 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/19 23:33:03 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	char			*result;
 	unsigned int	i;
 
-	result = malloc((ft_strlen(s) + 1) * sizeof(char));
+	result = malloc((ft_strlen(s) + 1) * sizeof(*result));
 	if (result == NULL)
 		return (NULL);
 	i = 0;
-	while (*(s + i) != '\0')
+	while (*(s + i))
 	{
-		*(result + i) = f(i, *(result + i));
+		*(result + i) = f(i, *(s + i));
 		i++;
 	}
 	*(result + i) = '\0';
