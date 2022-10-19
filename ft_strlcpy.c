@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:37:18 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/15 19:28:41 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/19 15:11:29 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,15 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 
-	i = 0;
 	if (dstsize > 0)
 	{
+		i = 0;
 		while (i < dstsize - 1)
 		{
 			*(dst + i) = *(src + i);
 			i++;
 		}
-		*(dst + i + 1) = '\0';
+		*(dst + i) = '\0';
 	}
-	return (strlen(src));
+	return (ft_strlen(src));
 }
