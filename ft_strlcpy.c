@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:37:18 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/19 15:11:29 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/19 17:07:15 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 
-	if (dstsize > 0)
+	if (dstsize)
 	{
 		i = 0;
-		while (i < dstsize - 1)
+		while (i < dstsize - 1 && *(src + i))
 		{
 			*(dst + i) = *(src + i);
 			i++;

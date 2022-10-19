@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/19 14:41:47 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/19 16:49:28 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,59 @@ int main(void)
 	assert(memcmp(memmove(src + 1, src, 4), ft_memmove(src_ft + 1, src_ft, 4), 0xFF) == 0);
 	assert(memcmp(src, src_ft, 0xFF) == 0);
 	printf("ft_memmove:	A-OKAY!\n");
-	
+
+	//***************************************
+	// test ft_strlcpy
+	//***************************************
+	printf("ft_strlcpy:	running tests...\n");
+	memset(dst, 0, 0xFF);
+	memset(src, 0, 0xFF);
+	memset(dst_ft, 0, 0xFF);
+	memset(src_ft, 0, 0xFF);
+
+	//copy full string
+	memmove(src, "Bonjour!", 9);
+	memmove(src_ft, "Bonjour!", 9);
+	assert(strlcpy(dst, src, 9) == ft_strlcpy(dst_ft, src_ft, 9));
+	assert(memcmp(dst, dst_ft, 0xFF) == 0);
+
+	//copy part of string
+	memmove(src, "Bonjour!", 9);
+	memmove(src_ft, "Bonjour!", 9);
+	assert(strlcpy(dst, src, 4) == ft_strlcpy(dst_ft, src_ft, 4));
+	assert(memcmp(dst, dst_ft, 0xFF) == 0);
+
+	//dstsize = 0
+	memmove(src, "Bonjour!", 9);
+	memmove(src_ft, "Bonjour!", 9);
+	assert(strlcpy(dst, src, 0) == ft_strlcpy(dst_ft, src_ft, 0));
+	assert(memcmp(dst, dst_ft, 0xFF) == 0);
+
+	//empty string
+	memmove(src, "", 1);
+	memmove(src_ft, "", 1);
+	assert(strlcpy(dst, src, 1) == ft_strlcpy(dst_ft, src_ft, 1));
+	assert(memcmp(dst, dst_ft, 0xFF) == 0);
+
+	//empty string
+	memmove(src, "", 1);
+	memmove(src_ft, "", 1);
+	assert(strlcpy(dst, src, 0) == ft_strlcpy(dst_ft, src_ft, 0));
+	assert(memcmp(dst, dst_ft, 0xFF) == 0);
+
+	//dst is NULL and dstsize = 0
+	memmove(src, "Bonjour!", 9);
+	memmove(src_ft, "Bonjour!", 9);
+	assert(strlcpy(NULL, src, 0) == ft_strlcpy(NULL, src_ft, 0));
+
+	//following should all segfault
+	//ft_strlcpy(NULL, src_ft, 5);
+	//ft_strlcpy(dst_ft, NULL, 0);
+	//ft_strlcpy(dst_ft, NULL, 5);
+	//ft_strlcpy(NULL, NULL, 0);
+	//ft_strlcpy(NULL, NULL, 5);
+	printf("ft_strlcpy:	A-OKAY!\n");
+
 	// test ft_isalpha
 	printf("ft_isalpha:	running tests...\n");
 	assert(isalpha('a') == ft_isalpha('a'));
@@ -321,13 +373,7 @@ int main(void)
 	assert(memcmp(memmove(str_8, str_8 + 1, 3), ft_memmove(str_9, str_9 + 1, 3), strlen(str_8)) == 0);
 	printf("ft_memmove:	A-OKAY!\n");
 
-	// test ft_strlcpy
-	printf("ft_strlcpy:	running tests...\n");
-	void *buf_5 = malloc(sizeof(char) * 255);
-	void *buf_6 = malloc(sizeof(char) * 255);
-	assert(strlcpy(buf_5, "Bonjour!", 9) == ft_strlcpy(buf_6, "Bonjour!", 9));
-	assert(memcmp(buf_5, buf_6, 255) == 0);
-	printf("ft_strlcpy:	A-OKAY!\n");
+	
 
 	// test ft_atoi
 	printf("ft_atoi:	running tests...\n");
