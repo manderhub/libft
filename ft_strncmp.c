@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:20:05 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/13 13:34:20 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/19 23:09:11 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
 	size_t	i;
 
+	if (n == 0)
+		return (0);
 	i = 0;
 	while (i < n - 1)
 	{

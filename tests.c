@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/19 22:20:04 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/19 23:12:01 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -327,7 +327,6 @@ int main(void)
 	// test ft_strnstr
 	//***************************************
 	printf("ft_strnstr:	running tests...\n");
-
 	//correct use of base case
 	assert(memcmp(strnstr("Do you respect wood?", "wood", 21), ft_strnstr("Do you respect wood?", "wood", 21), 6) == 0);
 	//len longer than haystack
@@ -345,7 +344,45 @@ int main(void)
 	//needle and haystack are equal, but len shorter than haystack
 	assert(strnstr("Do you respect wood?", "Do you respect wood?", 8) == ft_strnstr("Do you respect wood?", "Do you respect wood?", 8));
 	printf("ft_strnstr:	A-OKAY!\n");
-	
+
+	//***************************************
+	// test ft_strrchr
+	//***************************************
+	printf("ft_strrchr:	running tests...\n");
+	//basic case c in s
+	assert(memcmp(strrchr("I'm feeling pretty good.", 101), ft_strrchr("I'm feeling pretty good.", 101), 11) == 0);
+	//basic case c not in s
+	assert(strrchr("I'm feeling pretty good.", 97) == ft_strrchr("I'm feeling pretty good.", 97));
+	//c is '/0'
+	assert(memcmp(strrchr("I'm feeling pretty good.", 0), ft_strrchr("I'm feeling pretty good.", 0), 1) == 0);
+	//c is first char of s
+	assert(memcmp(strrchr("I'm feeling pretty good.", (int)('I')), ft_strrchr("I'm feeling pretty good.", (int)('I')), 25) == 0);
+	printf("ft_strrchr:	A-OKAY!\n");
+
+	//***************************************
+	// test ft_strncmp
+	//***************************************
+	printf("ft_strncmp:	running tests...\n");
+	//basic case identical
+	assert(strncmp("Fatwa!", "Fatwa!", 7) == ft_strncmp("Fatwa!", "Fatwa!", 7));
+	//identical, but n larger than strings
+	assert(strncmp("Fatwa!", "Fatwa!", 20) == ft_strncmp("Fatwa!", "Fatwa!", 20));
+	//identical, but n smaller than strings
+	assert(strncmp("Fatwa!", "Fatwa!", 3) == ft_strncmp("Fatwa!", "Fatwa!", 3));
+	//unequal sized strings
+	assert(strncmp("Fatwa!", "FatwaFatwa?", 7) == ft_strncmp("Fatwa!", "FatwaFatwa?", 7));
+	//unequal sized strings
+	assert(strncmp("Fatwa!", "FatwaFatwa?", 12) == ft_strncmp("Fatwa!", "FatwaFatwa?", 12));
+	//unequal after '\0'
+	assert(strncmp("Fatwa\0!", "Fatwa\0?", 8) == ft_strncmp("Fatwa\0!", "Fatwa\0?", 8));
+	printf("ft_strncmp:	A-OKAY!\n");
+	//empty strings
+	assert(strncmp("", "", 8) == ft_strncmp("", "", 8));
+	//n = 0, equal
+	assert(strncmp("F", "F", 0) == ft_strncmp("F", "F", 0));
+	//n = 0, unequal
+	assert(strncmp("F", "W", 0) == ft_strncmp("F", "W", 0));
+	printf("ft_strncmp:	A-OKAY!\n");
 
 	// test ft_isalpha
 	printf("ft_isalpha:	running tests...\n");
@@ -550,7 +587,6 @@ int main(void)
 	char b[0xF0];
 	memmove(b, NULL, 0);
 	//ft_memmove(NULL, NULL, 5);
-	return 1;
 	char str_1[] = "Bonjour!";
 	char str_2[] = "Bonjour!";
 	assert(memcmp(memmove(str_1 + 1, str_1, 2), ft_memmove(str_2 + 1, str_2, 2), strlen(str_1)) == 0);
