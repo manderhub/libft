@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/19 16:49:28 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/19 20:52:06 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,181 @@ int main(void)
 	//ft_strlcpy(NULL, NULL, 0);
 	//ft_strlcpy(NULL, NULL, 5);
 	printf("ft_strlcpy:	A-OKAY!\n");
+
+	//***************************************
+	// test ft_strlcat
+	//***************************************
+	printf("ft_strlcat:	running tests...\n");
+	//basic correct use
+	memset(dst, 'A', 0xFF);
+	memset(src, 'A', 0xFF);
+	memset(dst_ft, 'A', 0xFF);
+	memset(src_ft, 'A', 0xFF);
+	memmove(dst, "Bonjour, ", 10);
+	memmove(dst_ft, "Bonjour, ", 10);
+	memmove(src, "Mario!", 7);
+	memmove(src_ft, "Mario!", 7);
+	assert(strlcat(dst, src, 16) == ft_strlcat(dst_ft, src_ft, 16));
+	assert(memcmp(dst, dst_ft, 0xff) == 0);
+
+	//dstsize larger than len(dst) + len(src) + 1
+	memset(dst, 'A', 0xFF);
+	memset(src, 'A', 0xFF);
+	memset(dst_ft, 'A', 0xFF);
+	memset(src_ft, 'A', 0xFF);
+	memmove(dst, "Bonjour, ", 10);
+	memmove(dst_ft, "Bonjour, ", 10);
+	memmove(src, "Mario!", 7);
+	memmove(src_ft, "Mario!", 7);
+	assert(strlcat(dst, src, 20) == ft_strlcat(dst_ft, src_ft, 20));
+	assert(memcmp(dst, dst_ft, 0xff) == 0);
+
+	//dstsize smaller than len(dst) + len(src) + 1
+	memset(dst, 'A', 0xFF);
+	memset(src, 'A', 0xFF);
+	memset(dst_ft, 'A', 0xFF);
+	memset(src_ft, 'A', 0xFF);
+	memmove(dst, "Bonjour, ", 10);
+	memmove(dst_ft, "Bonjour, ", 10);
+	memmove(src, "Mario!", 7);
+	memmove(src_ft, "Mario!", 7);
+	assert(strlcat(dst, src, 10) == ft_strlcat(dst_ft, src_ft, 10));
+	assert(memcmp(dst, dst_ft, 0xff) == 0);
+
+	//dstsize 0
+	memset(dst, 'A', 0xFF);
+	memset(src, 'A', 0xFF);
+	memset(dst_ft, 'A', 0xFF);
+	memset(src_ft, 'A', 0xFF);
+	memmove(dst, "Bonjour, ", 10);
+	memmove(dst_ft, "Bonjour, ", 10);
+	memmove(src, "Mario!", 7);
+	memmove(src_ft, "Mario!", 7);
+	assert(strlcat(dst, src, 0) == ft_strlcat(dst_ft, src_ft, 0));
+	assert(memcmp(dst, dst_ft, 0xff) == 0);
+
+	//dst is empty string, correct dstsize
+	memset(dst, 'A', 0xFF);
+	memset(src, 'A', 0xFF);
+	memset(dst_ft, 'A', 0xFF);
+	memset(src_ft, 'A', 0xFF);
+	memmove(dst, "", 1);
+	memmove(dst_ft, "", 1);
+	memmove(src, "Mario!", 7);
+	memmove(src_ft, "Mario!", 7);
+	assert(strlcat(dst, src, 7) == ft_strlcat(dst_ft, src_ft, 7));
+	assert(memcmp(dst, dst_ft, 0xff) == 0);
+
+	//dst is empty string, larger dstsize
+	memset(dst, 'A', 0xFF);
+	memset(src, 'A', 0xFF);
+	memset(dst_ft, 'A', 0xFF);
+	memset(src_ft, 'A', 0xFF);
+	memmove(dst, "", 1);
+	memmove(dst_ft, "", 1);
+	memmove(src, "Mario!", 7);
+	memmove(src_ft, "Mario!", 7);
+	assert(strlcat(dst, src, 20) == ft_strlcat(dst_ft, src_ft, 20));
+	assert(memcmp(dst, dst_ft, 0xff) == 0);
+
+	//dst is empty string, too small dstsize
+	memset(dst, 'A', 0xFF);
+	memset(src, 'A', 0xFF);
+	memset(dst_ft, 'A', 0xFF);
+	memset(src_ft, 'A', 0xFF);
+	memmove(dst, "", 1);
+	memmove(dst_ft, "", 1);
+	memmove(src, "Mario!", 7);
+	memmove(src_ft, "Mario!", 7);
+	assert(strlcat(dst, src, 4) == ft_strlcat(dst_ft, src_ft, 4));
+	assert(memcmp(dst, dst_ft, 0xff) == 0);
+
+	//src is empty string, correct dstsize
+	memset(dst, 'A', 0xFF);
+	memset(src, 'A', 0xFF);
+	memset(dst_ft, 'A', 0xFF);
+	memset(src_ft, 'A', 0xFF);
+	memmove(dst, "Bonjour!", 9);
+	memmove(dst_ft, "Bonjour!", 9);
+	memmove(src, "", 1);
+	memmove(src_ft, "", 1);
+	assert(strlcat(dst, src, 9) == ft_strlcat(dst_ft, src_ft, 9));
+	assert(memcmp(dst, dst_ft, 0xff) == 0);
+
+	//src is empty string, larger dstsize
+	memset(dst, 'A', 0xFF);
+	memset(src, 'A', 0xFF);
+	memset(dst_ft, 'A', 0xFF);
+	memset(src_ft, 'A', 0xFF);
+	memmove(dst, "Bonjour!", 9);
+	memmove(dst_ft, "Bonjour!", 9);
+	memmove(src, "", 1);
+	memmove(src_ft, "", 1);
+	assert(strlcat(dst, src, 20) == ft_strlcat(dst_ft, src_ft, 20));
+	assert(memcmp(dst, dst_ft, 0xff) == 0);
+
+	//src is empty string, too small dstsize
+	memset(dst, 'A', 0xFF);
+	memset(src, 'A', 0xFF);
+	memset(dst_ft, 'A', 0xFF);
+	memset(src_ft, 'A', 0xFF);
+	memmove(dst, "Bonjour!", 9);
+	memmove(dst_ft, "Bonjour!", 9);
+	memmove(src, "", 1);
+	memmove(src_ft, "", 1);
+	assert(strlcat(dst, src, 4) == ft_strlcat(dst_ft, src_ft, 4));
+	assert(memcmp(dst, dst_ft, 0xff) == 0);
+	
+	//src is empty string
+	memset(dst, 'A', 0xFF);
+	memset(src, 'A', 0xFF);
+	memset(dst_ft, 'A', 0xFF);
+	memset(src_ft, 'A', 0xFF);
+	memmove(dst, ", ", 1);
+	memmove(dst_ft, ", ", 1);
+	memmove(src, "Mario!", 7);
+	memmove(src_ft, "Mario!", 7);
+	assert(strlcat(dst, src, 20) == ft_strlcat(dst_ft, src_ft, 20));
+	assert(memcmp(dst, dst_ft, 0xff) == 0);
+
+	//src is NULL, size 0
+	memset(dst, 'A', 0xFF);
+	memset(dst_ft, 'A', 0xFF);
+	memmove(dst, "Bonjour!", 9);
+	memmove(dst_ft, "Bonjour!", 9);
+	//segfault expected
+	//ft_strlcat(dst_ft, NULL, 0);
+
+	//src is NULL, size > 0
+	memset(dst, 'A', 0xFF);
+	memset(dst_ft, 'A', 0xFF);
+	memmove(dst, "Bonjour!", 9);
+	memmove(dst_ft, "Bonjour!", 9);
+	//segfault expected
+	//ft_strlcat(dst_ft, NULL, 20);
+
+
+	//TODO: ft_strlcat segfaults for this testcase while strlcat does not!
+	//dst is NULL, size 0
+	memset(src, 'A', 0xFF);
+	memset(src_ft, 'A', 0xFF);
+	memmove(src, "Bonjour!", 9);
+	memmove(src_ft, "Bonjour!", 9);
+	//printf("%lu\n", strlcat(NULL, src, 0));
+	//printf("%lu\n", ft_strlcat(NULL, src_ft, 0));
+	//assert(strlcat(NULL, src, 0) == ft_strlcat(NULL, src_ft, 0));
+	//assert(memcmp(dst, dst_ft, 0xff) == 0);
+
+	//dst is NULL, size > 0
+	memset(src, 'A', 0xFF);
+	memset(src_ft, 'A', 0xFF);
+	memmove(src, "Bonjour!", 9);
+	memmove(src_ft, "Bonjour!", 9);
+	//segfault expected
+	//ft_strlcat(NULL, src_ft, 20);
+	
+	printf("ft_strlcat:	A-OKAY!\n");
+	
 
 	// test ft_isalpha
 	printf("ft_isalpha:	running tests...\n");
