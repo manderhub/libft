@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 15:18:16 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/19 14:47:31 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/19 14:49:52 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	while (i < n)
 	{
 		*(char *)(dst + i) = *(char *)(src + i);
+		i++;
 	}
 	return (dst);
 }
