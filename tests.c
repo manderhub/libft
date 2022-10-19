@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/19 20:52:06 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/19 22:20:04 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -321,8 +321,30 @@ int main(void)
 	memmove(src_ft, "Bonjour!", 9);
 	//segfault expected
 	//ft_strlcat(NULL, src_ft, 20);
-	
 	printf("ft_strlcat:	A-OKAY!\n");
+	
+	//***************************************
+	// test ft_strnstr
+	//***************************************
+	printf("ft_strnstr:	running tests...\n");
+
+	//correct use of base case
+	assert(memcmp(strnstr("Do you respect wood?", "wood", 21), ft_strnstr("Do you respect wood?", "wood", 21), 6) == 0);
+	//len longer than haystack
+	assert(memcmp(strnstr("Do you respect wood?", "wood", 200), ft_strnstr("Do you respect wood?", "wood", 200), 6) == 0);
+	//needle is empty
+	assert(memcmp(strnstr("Do you respect wood?", "", 21), ft_strnstr("Do you respect wood?", "", 21), 21) == 0);
+	//len shorter than haystack and too short to find needle
+	assert(strnstr("Do you respect wood?", "wood", 18) == ft_strnstr("Do you respect wood?", "wood", 18));
+	//needle not in haystack at all
+	assert(strnstr("Do you respect wood?", "howdy", 21) == ft_strnstr("Do you respect wood?", "howdy", 21));
+	//needle longer than haystack
+	assert(strnstr("Do you respect wood?", "Do you respect wood, honey?", 21) == ft_strnstr("Do you respect wood?", "Do you respect wood, honey?", 21));
+	//needle and haystack are equal
+	assert(strnstr("Do you respect wood?", "Do you respect wood?", 21) == ft_strnstr("Do you respect wood?", "Do you respect wood?", 21));
+	//needle and haystack are equal, but len shorter than haystack
+	assert(strnstr("Do you respect wood?", "Do you respect wood?", 8) == ft_strnstr("Do you respect wood?", "Do you respect wood?", 8));
+	printf("ft_strnstr:	A-OKAY!\n");
 	
 
 	// test ft_isalpha
