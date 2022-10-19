@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 12:55:20 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/18 14:54:03 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/19 22:40:49 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 /*
 	Locates the last occurrence of c (converted to char) in the string
 	pointed to by s.
+	The terminating NULL character is considered part of the string.
+	Therefore if c is '\0', the function locates the terminating '\0'.
 
 	s:			string to examine
 	c:			character to find in s
@@ -23,10 +25,10 @@
 */
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	i;
+	int	i;
 
 	i = ft_strlen(s);
-	while (i)
+	while (i >= 0)
 	{
 		if (*(s + i) == (char)(c))
 			return ((char *)(s + i));
