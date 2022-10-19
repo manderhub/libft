@@ -1,24 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   playground.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/11 12:07:37 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/19 10:44:35 by manderhu         ###   ########.fr       */
+/*   Created: 2022/10/19 11:09:18 by manderhu          #+#    #+#             */
+/*   Updated: 2022/10/19 14:21:06 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
-	Checks whether parameter c is an alphabetic character.
-
-	c:			integer to check
-	returns:	1 if c is alphabetic and 0 if c is non-alphabetic
-*/
-int	ft_isalpha(int c)
+int	main(void)
 {
-	return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z'));
+	char a[0xF0];
+	//char b[0xF0];
+	
+	printf("%p\n", ft_memcpy(NULL, NULL, 0));
+	printf("%p\n", ft_memcpy(NULL, NULL, 5));
+	printf("%p\n", ft_memcpy(a, NULL, 0));
+	printf("%p\n", ft_memcpy(a, NULL, 5));
+	return (0);
 }

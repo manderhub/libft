@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/18 19:01:05 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/19 14:41:47 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,88 @@
 
 int main(void)
 {
+	//***************************************
+	// test ft_memmove
+	//***************************************
+	printf("ft_memcpy:	running tests...\n");
+	char dst[0xFF];
+	char src[0xFF];
+	char dst_ft[0xFF];
+	char src_ft[0xFF];
+	memset(dst, 0, 0xFF);
+	memset(src, 0, 0xFF);
+	memset(dst_ft, 0, 0xFF);
+	memset(src_ft, 0, 0xFF);
+
+	//copy full src
+	memmove(src, "Bonjour!", 9);
+	memmove(src_ft, "Bonjour!", 9);
+	assert(memcmp(memcpy(dst, src, 9), ft_memcpy(dst_ft, src_ft, 9), 0xFF) == 0);
+	
+	//copy 0 bytes
+	memmove(src, "Bonjour!", 9);
+	memmove(src_ft, "Bonjour!", 9);
+	assert(memcmp(memcpy(dst, src, 0), ft_memcpy(dst_ft, src_ft, 9), 0xFF) == 0);
+	
+	//copy less than full string
+	memmove(src, "Bonjour!", 9);
+	memmove(src_ft, "Bonjour!", 9);
+	assert(memcmp(memcpy(dst, src, 4), ft_memcpy(dst_ft, src_ft, 4), 0xFF) == 0);
+
+	//NULL checks
+	memmove(src, "Bonjour!", 9);
+	memmove(src_ft, "Bonjour!", 9);
+	assert(memcpy(NULL, NULL, 0) == ft_memcpy(NULL, NULL, 0));
+	assert(memcpy(NULL, NULL, 5) == ft_memcpy(NULL, NULL, 5));
+	assert(memcmp(memcpy(dst, NULL, 0), ft_memcpy(dst_ft, NULL, 0), 0xFF) == 0);
+	assert(memcpy(NULL, src, 0) == ft_memcpy(NULL, src_ft, 0));
+	//the following 2 test cases should segfault
+	//ft_memcpy(dst_ft, NULL, 5);
+	//ft_memcpy(NULL, src_ft, 5);
+	printf("ft_memcpy:	A-OKAY!\n");
+	
+	//***************************************
+	// test ft_memmove
+	//***************************************
+	printf("ft_memmove:	running tests...\n");
+	memset(dst, 0, 0xFF);
+	memset(src, 0, 0xFF);
+	memset(dst_ft, 0, 0xFF);
+	memset(src_ft, 0, 0xFF);
+
+	//copy full src
+	memmove(src, "Bonjour!", 9);
+	memmove(src_ft, "Bonjour!", 9);
+	assert(memcmp(memmove(dst, src, 9), ft_memmove(dst_ft, src_ft, 9), 0xFF) == 0);
+	
+	//copy 0 bytes
+	memmove(src, "Bonjour!", 9);
+	memmove(src_ft, "Bonjour!", 9);
+	assert(memcmp(memmove(dst, src, 0), ft_memmove(dst_ft, src_ft, 9), 0xFF) == 0);
+	
+	//copy less than full string
+	memmove(src, "Bonjour!", 9);
+	memmove(src_ft, "Bonjour!", 9);
+	assert(memcmp(memmove(dst, src, 4), ft_memmove(dst_ft, src_ft, 4), 0xFF) == 0);
+
+	//NULL checks
+	memmove(src, "Bonjour!", 9);
+	memmove(src_ft, "Bonjour!", 9);
+	assert(memmove(NULL, NULL, 0) == ft_memmove(NULL, NULL, 0));
+	assert(memmove(NULL, NULL, 5) == ft_memmove(NULL, NULL, 5));
+	assert(memcmp(memmove(dst, NULL, 0), ft_memmove(dst_ft, NULL, 0), 0xFF) == 0);
+	assert(memmove(NULL, src, 0) == ft_memmove(NULL, src_ft, 0));
+	//the following 2 test cases should segfault
+	//ft_memmove(dst_ft, NULL, 5);
+	//ft_memmove(NULL, src_ft, 5);
+
+	//Overlap
+	memmove(src, "Bonjour!", 9);
+	memmove(src_ft, "Bonjour!", 9);
+	assert(memcmp(memmove(src + 1, src, 4), ft_memmove(src_ft + 1, src_ft, 4), 0xFF) == 0);
+	assert(memcmp(src, src_ft, 0xFF) == 0);
+	printf("ft_memmove:	A-OKAY!\n");
+	
 	// test ft_isalpha
 	printf("ft_isalpha:	running tests...\n");
 	assert(isalpha('a') == ft_isalpha('a'));
@@ -216,6 +298,10 @@ int main(void)
 
 	// test ft_memmove
 	printf("ft_memmove:	running tests...\n");
+	char b[0xF0];
+	memmove(b, NULL, 0);
+	//ft_memmove(NULL, NULL, 5);
+	return 1;
 	char str_1[] = "Bonjour!";
 	char str_2[] = "Bonjour!";
 	assert(memcmp(memmove(str_1 + 1, str_1, 2), ft_memmove(str_2 + 1, str_2, 2), strlen(str_1)) == 0);
