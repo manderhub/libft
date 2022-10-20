@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 16:47:19 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/17 13:00:31 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/20 12:04:35 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,27 @@
 
 /*
 	Allocates and returns a substring from the string s.
-	The substring begins at index start and is of maximum lenght len.
+	The substring begins at index start and is of maximum length len.
 	For non-negative len, the resulting string will be NUL-terminated.
 
 	s:			string from which to create the substring
 	start:		start index of the substring in the string s
-	len:		max lenght of the substring (excluding NUL byte)
+	len:		max length of the substring (excluding NUL byte)
 	returns:	the created substring; NULL if allocation fails
 */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substring;
 	size_t	i;
-	int		actual_len;
+	size_t	s_len;
 
-	actual_len = len;
-	if (ft_strlen(s) - start < len)
-		actual_len = ft_strlen(s) - start;
-	substring = malloc((actual_len + 1) * sizeof(char));
-	if (substring == NULL)
+	s_len = ft_strlen(s);
+	if (start >= s_len)
+		len = 0;
+	else if (start + len > s_len)
+		len = s_len - start;
+	substring = malloc((len + 1) * sizeof(*substring));
+	if (!substring)
 		return (NULL);
 	i = 0;
 	while (i < len)
