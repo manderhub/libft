@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:56 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/19 23:12:01 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/20 13:29:21 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -383,6 +383,40 @@ int main(void)
 	//n = 0, unequal
 	assert(strncmp("F", "W", 0) == ft_strncmp("F", "W", 0));
 	printf("ft_strncmp:	A-OKAY!\n");
+
+	//***************************************
+	// test ft_substr
+	//***************************************
+	printf("ft_substr:	running tests...\n");
+	char str1[] = "I'm doing pretty good.";
+	char res[0xff];
+	//basci case, start = 0
+	ft_memmove(res, "I", 2);
+	assert(memcmp(res, ft_substr(str1, 0, 1), 2) == 0);
+	//basic case, start nonzero
+	ft_memmove(res, "m", 2);
+	assert(memcmp(res, ft_substr(str1, 2, 1), 2) == 0);
+	//start = last
+	ft_memmove(res, ".", 2);
+	assert(memcmp(res, ft_substr(str1, 21, 1), 2) == 0);
+	//start = nul byte
+	ft_memmove(res, "", 1);
+	assert(memcmp(res, ft_substr(str1, 22, 1), 1) == 0);
+	//basci case, start = 0, len > 0
+	ft_memmove(res, "I'm", 4);
+	assert(memcmp(res, ft_substr(str1, 0, 3), 4) == 0);
+	//basic case, start nonzero, len > 0
+	ft_memmove(res, "doing", 6);
+	assert(memcmp(res, ft_substr(str1, 4, 5), 6) == 0);
+	//start + len > strlen
+	ft_memmove(res, "good.", 6);
+	assert(memcmp(res, ft_substr(str1, 17, 500), 6) == 0);
+	//start > strlen
+	ft_memmove(res, "", 1);
+	assert(memcmp(res, ft_substr(str1, 400, 5), 1) == 0);
+
+	
+	printf("ft_substr:	A-OKAY!\n");
 
 	// test ft_isalpha
 	printf("ft_isalpha:	running tests...\n");
