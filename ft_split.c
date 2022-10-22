@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 15:53:08 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/18 09:55:50 by manderhu         ###   ########.fr       */
+/*   Created: 2022/10/22 21:43:01 by manderhu          #+#    #+#             */
+/*   Updated: 2022/10/23 00:01:55 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,32 @@
 
 /*
 	Counts the number of delimiters c in string s.
+	Any number of consecutive delimiters count as 1.
+	Delimiters at the beginning and end of string are
+	ignored.
 
-	s:			strng to be searched
+	s:			string to be searched
 	c:			delimiter to be counted
 	returns:	number of delimiters encountered
 */
 static size_t	count_delimiter(char const *s, char c)
 {
+	size_t	i;
 	size_t	count;
 
 	count = 0;
-	while (*(s))
+	i = 0;
+	while (*(s + i))
 	{
-		if (*(s) == c)
-			count++;
-		s++;
+		if (*(s + i) == c)
+		{
+			if (i != 0 && i != ft_strlen(s) - 1)
+				count++;
+			while (*(s + i) == c)
+				i++;
+			continue ;
+		}
+		i++;
 	}
 	return (count);
 }
@@ -37,14 +48,13 @@ static size_t	count_delimiter(char const *s, char c)
 	Frees all allocated memory of p.
 
 	p:		memory to be freed
-	size:	maximum size
 */
-void	*cleanup(char **p, size_t size)
+void	*cleanup(char **p)
 {
 	size_t	i;
 
 	i = 0;
-	while (i < size && *(p + i) != NULL)
+	while (*(p + i))
 	{
 		free(*(p + i));
 		i++;
@@ -65,28 +75,30 @@ void	*cleanup(char **p, size_t size)
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	size_t	i;
-	size_t	j;
 	size_t	start;
+	size_t	end;
+	size_t	i;
 
-	result = malloc(sizeof(char *) * (count_delimiter(s, c) + 2));
-	if (result == NULL)
+	result = malloc(sizeof(*result) * (count_delimiter(s, c) + 1 + 1));
+	if (!result)
 		return (NULL);
-	i = 0;
-	j = 0;
 	start = 0;
-	while (i < ft_strlen(s) + 1)
+	i = 0;
+	while (*(s + start))
 	{
-		if (*(s + i) == c || *(s + i) == '\0')
+		if (*(s + start) != c)
 		{
-			*(result + j) = ft_substr(s, start, i - start);
-			if (*(result + j) == NULL)
-				return (cleanup(result, count_delimiter(s, c) + 2));
-			start = i + 1;
-			j++;
+			end = start;
+			while (*(s + end) != c && *(s + end))
+				end++;
+			*(result + i) = ft_substr(s, start, end - start);
+			if (!*(result + i))
+				return (cleanup(result));
+			i++;
+			start = end - 1;
 		}
-		i++;
+		start++;
 	}
-	*(result + j) = NULL;
+	*(result + i) = NULL;
 	return (result);
 }
