@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 21:43:01 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/23 00:01:55 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/23 00:27:47 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,29 +75,27 @@ void	*cleanup(char **p)
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	size_t	start;
 	size_t	end;
 	size_t	i;
 
 	result = malloc(sizeof(*result) * (count_delimiter(s, c) + 1 + 1));
 	if (!result)
 		return (NULL);
-	start = 0;
 	i = 0;
-	while (*(s + start))
+	while (*(s))
 	{
-		if (*(s + start) != c)
+		if (*(s) != c)
 		{
-			end = start;
+			end = 0;
 			while (*(s + end) != c && *(s + end))
 				end++;
-			*(result + i) = ft_substr(s, start, end - start);
+			*(result + i) = ft_substr(s, 0, end);
 			if (!*(result + i))
 				return (cleanup(result));
 			i++;
-			start = end - 1;
+			s = (s + (end - 1));
 		}
-		start++;
+		s++;
 	}
 	*(result + i) = NULL;
 	return (result);
