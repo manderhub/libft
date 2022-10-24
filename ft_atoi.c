@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 15:23:30 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/18 14:48:18 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/24 22:26:17 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,43 +18,48 @@
 	c:			character to be tested
 	returns:	non-zero value if c is white-space character or else zero
 */
-static int	ft_isspace(int c)
+static int	ft_is_space(char c)
 {
-	unsigned int	c_ui;
-
-	c_ui = (unsigned int)(c);
-	return (c_ui == '\t' || c_ui == '\n' || c_ui == '\v'
-		|| c_ui == '\f' || c_ui == '\r' || c_ui == ' ');
+	return (c == '\t' || c == '\n' || c == '\v'
+		|| c == '\f' || c == '\r' || c == ' ');
 }
 
 /*
 	Converts the initial portion of the string str to an int representation.
 	Skips all whitespace characters in the beginning.
+	Largest/smallest representable values are MIN/MAX values of long
+	data type.
 
 	str:		string to be converted to int
-	returns:	int respresentation of the initial portion of str
+	returns:	int respresentation of the initial portion of str;
+				in case of overflow, -1 for positive and 0 for 
+				negative numbers
 */
 int	ft_atoi(const char *str)
 {
-	int		result;
-	int		sign;
-	size_t	i;
+	long	result;
+	long	sign;
 
 	result = 0;
-	i = 0;
 	sign = 1;
-	while (ft_isspace((int)*(str + i)))
-		i++;
-	if (*(str + i) == '-' || *(str + i) == '+')
+	while (ft_is_space(*(str)))
+		str++;
+	if (*(str) == '-' || *(str) == '+')
 	{
-		if (*(str + i) == '-')
+		if (*(str++) == '-')
 			sign = -1;
-		i++;
 	}
-	while (ft_isdigit((int)(*(str + i))))
+	while (ft_isdigit((int)(*(str))))
 	{
-		result = result * 10 + (int)(*(str + i)) - 48;
-		i++;
+		result = result * 10 + (long)(*(str)) - 48;
+		if (result < 0)
+		{
+			if (sign == -1)
+				return (0);
+			else
+				return (-1);
+		}
+		str++;
 	}
 	return (result * sign);
 }
