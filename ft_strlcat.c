@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:38 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/19 20:53:37 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/24 18:12:55 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,20 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 	size_t	dst_len;
 
-	dst_len = ft_strlen(dst);
-	if (dstsize && dstsize > ft_strlen(dst))
+	if (dst)
 	{
-		i = 0;
-		while (*(src + i) && i < dstsize - dst_len - 1)
+		dst_len = ft_strlen(dst);
+		if (dstsize && dstsize > ft_strlen(dst))
 		{
-			*(dst + dst_len + i) = *(src + i);
-			i++;
+			i = 0;
+			while (*(src + i) && i < dstsize - dst_len - 1)
+			{
+				*(dst + dst_len + i) = *(src + i);
+				i++;
+			}
+			*(dst + dst_len + i) = '\0';
+			return (dst_len + ft_strlen(src));
 		}
-		*(dst + dst_len + i) = '\0';
-		return (dst_len + ft_strlen(src));
 	}
-	else
-	{
-		return (dstsize + ft_strlen(src));
-	}
+	return (dstsize + ft_strlen(src));
 }
