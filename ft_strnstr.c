@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 14:47:53 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/19 21:50:45 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/24 22:02:43 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,19 +34,18 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	len_needle = ft_strlen(needle);
 	if (!len_needle)
 		return ((char *)(haystack));
-	if (len_needle <= len)
+	if (!len)
+		return (NULL);
+	i = 0;
+	while (i <= len - len_needle && *(haystack + i))
 	{
-		i = 0;
-		while (i <= len - len_needle && *(haystack))
-		{
-			result = (char *)(haystack + i);
-			j = 0;
-			while (*(haystack + i + j) == *(needle + j) && *(needle + j))
-				j++;
-			if (!*(needle + j))
-				return (result);
-			i++;
-		}
+		result = (char *)(haystack + i);
+		j = 0;
+		while (*(haystack + i + j) == *(needle + j) && *(needle + j))
+			j++;
+		if (!*(needle + j))
+			return (result);
+		i++;
 	}
 	return (NULL);
 }
