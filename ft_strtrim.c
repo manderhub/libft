@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:52:50 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/18 14:50:54 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/24 13:33:35 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@
 	set_len:	number of elements in set
 	returns:	1 if c is in set; 0 if c is not in set
 */
-static int	ft_inset(char c, char const *set, size_t set_len)
+static int	ft_in_set(char c, char const *set)
 {
-	while (set_len--)
+	while (*set)
 	{
 		if (c == *(set))
 			return (1);
@@ -47,34 +47,32 @@ static size_t	ft_num_trimmable(char const *s1, char const *set, int left)
 {
 	int	i;
 	int	len_s1;
-	int	len_set;
 	int	num_trimmable;
 
 	len_s1 = ft_strlen(s1);
-	len_set = ft_strlen(set);
 	num_trimmable = 0;
 	if (left)
 	{
 		i = 0;
-		while (i < len_s1 && ft_inset(*(s1 + i++), set, len_set))
+		while (i < len_s1 && ft_in_set(*(s1 + i++), set))
 			num_trimmable++;
 	}
 	else
 	{
 		i = len_s1 - 1;
-		while (i >= 0 && ft_inset(*(s1 + i--), set, len_set))
+		while (i >= 0 && ft_in_set(*(s1 + i--), set))
 			num_trimmable++;
 	}
 	return (num_trimmable);
 }
 
 /*
-    Allocates and returns a copy of ’s1’ with the characters specified in
-    ’set’ removed from the beginning and the end of the string.
+	Allocates and returns a copy of ’s1’ with the characters specified in
+	’set’ removed from the beginning and the end of the string.
 
-    s1:         string to be trimmed
-    set:        reference set of characters to trim
-    returns:    the trimmed string; NULL if allocation fails
+	s1:			string to be trimmed
+	set:		reference set of characters to trim
+	returns:	the trimmed string; NULL if allocation fails
 */
 char	*ft_strtrim(char const *s1, char const *set)
 {
