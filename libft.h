@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:50 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/24 13:19:51 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/25 10:52:25 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ typedef struct	s_list
 	struct s_list	*next;
 }					t_list;
 t_list	*ft_lstnew(void *content);
+void	ft_lstadd_front(t_list **lst, t_list *new);
 
 #endif
