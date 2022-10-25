@@ -5,68 +5,47 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/18 13:44:52 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/25 00:13:51 by manderhu         ###   ########.fr       */
+/*   Created: 2022/10/25 14:43:10 by manderhu          #+#    #+#             */
+/*   Updated: 2022/10/25 15:06:00 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static size_t	num_digits(long n)
+/**
+ * Prints digits recursively to the given file descriptor.
+ * 
+ * n:	number to print
+ * ft:	file descriptor on which to write
+*/
+void	print_digits_rec(long n, int fd)
 {
-	size_t	result;
-
-	result = 1;
-	while (n > 10)
+	if (n < 10)
 	{
-		n /= 10;
-		result++;
+		ft_putchar_fd(n + 48, fd);
+		return ;
 	}
-	return (result);
+	print_digits_rec(n / 10, fd);
+	ft_putchar_fd((n % 10) + 48, fd);
+	return ;
 }
 
-static long	pow_10(size_t e)
-{
-	long	result;
-
-	result = 1;
-	while (e > 1)
-	{
-		result *= 10;
-		e--;
-	}
-	return (result);
-}
-
-/*
-	Outputs the integer ’n’ to the given file descriptor.
-	
-	n:	integer to output
-	fd:	file descriptor on which to write	
+/**
+ * Outputs the integer 'n' to the given file descriptor 'fd'.
+ * Uses long type internally to avoid int overflow.
+ * 
+ * n:	integer to output
+ * ft:	file descriptor on which to write
 */
 void	ft_putnbr_fd(int n, int fd)
 {
-	long	divisor;
-	long	tmp;
-	char	c;
-	size_t	digits;
+	long	num;
 
-	tmp = (long)(n);
-	if (n < 0)
+	num = (long)(n);
+	if (num < 0)
 	{
-		ft_putchar_fd('-', 1);
-		tmp = -1 * (long)(n);
+		num *= -1;
+		ft_putchar_fd('-', fd);
 	}
-	digits = num_digits(tmp);
-	divisor = pow_10(digits);
-	while (digits--)
-	{
-		if (tmp < 10)
-			c = (char)(tmp + 48);
-		else
-			c = (char)((tmp / divisor) + 48);
-		ft_putchar_fd(c, fd);
-		tmp = tmp % divisor;
-		divisor /= 10;
-	}
+	print_digits_rec(num, fd);
 }
