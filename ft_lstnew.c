@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 13:18:37 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/24 15:00:12 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/26 15:38:52 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 t_list	*ft_lstnew(void *content)
 {
 	t_list	*list;
-	
+
 	list = malloc(sizeof(*list) * 1);
 	if (list == NULL)
 		return (NULL);
