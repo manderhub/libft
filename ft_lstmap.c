@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 13:09:11 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/26 15:25:25 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/26 15:33:53 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,13 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 	start = NULL;
 	while (lst)
 	{
+		new_node = ft_lstnew((*f)(lst->content));
+		if (new_node == NULL && start == NULL)
+			return (NULL);
 		if (start == NULL)
-		{
-			start = ft_lstnew((*f)(lst->content));
-			if (start == NULL)
-				return (NULL);
-		}
+			start = new_node;
 		else
 		{
-			new_node = ft_lstnew((*f)(lst->content));
 			if (new_node == NULL)
 			{
 				ft_lstclear(&start, del);
