@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 19:20:17 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/25 00:17:49 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/26 15:55:18 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strdup(const char *s1)
 	char	*result;
 	size_t	len;
 
-	len = strlen(s1);
+	len = ft_strlen(s1);
 	result = malloc((len + 1) * sizeof(char));
 	if (result == NULL)
 		return (NULL);
