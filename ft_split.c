@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 21:43:01 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/26 18:24:45 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/27 14:53:42 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ static size_t	count_words(char const *s, char c)
 		if (*s != c)
 		{
 			count++;
-			while (*s != c)
+			while (*s != c && *s)
 				s++;
 		}
 		else

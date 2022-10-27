@@ -6,17 +6,17 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 12:07:37 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/19 10:44:35 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/27 12:05:10 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	Checks whether parameter c is an alphabetic character.
-
-	c:			integer to check
-	returns:	1 if c is alphabetic and 0 if c is non-alphabetic
+ * Checks whether parameter c is an alphabetic character.
+ * 
+ * c:		integer to check
+ * returns:	1 if c is alphabetic and 0 if c is non-alphabetic
 */
 int	ft_isalpha(int c)
 {

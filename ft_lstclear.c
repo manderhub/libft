@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:27:58 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/26 11:46:29 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/27 13:07:10 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,14 @@
 */
 void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	t_list	*current;
-	t_list	*next;
+	t_list	*del_next;
 
-	if (lst == NULL || *lst == NULL || del == NULL)
+	if (!lst || !del)
 		return ;
-	current = *lst;
-	while (current)
+	while (*lst)
 	{
-		next = current->next;
-		ft_lstdelone(current, del);
-		current = next;
+		del_next = *lst;
+		*lst = (*lst)->next;
+		ft_lstdelone(del_next, del);
 	}
-	*lst = NULL;
 }

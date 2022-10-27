@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:43:10 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/25 15:06:00 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/27 14:00:13 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	ft_putnbr_fd(int n, int fd)
 {
 	long	num;
 
-	num = (long)(n);
+	num = (long) n;
 	if (num < 0)
 	{
 		num *= -1;

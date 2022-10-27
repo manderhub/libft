@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:41:25 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/25 17:08:58 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/27 13:01:07 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,11 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*current_last;
 
-	if (lst == NULL || new == NULL)
+	if (!lst)
 		return ;
-	current_last = ft_lstlast(*(lst));
-	if (current_last == NULL)
-		ft_lstadd_front(lst, new);
+	current_last = ft_lstlast(*lst);
+	if (!current_last)
+		*lst = new;
 	else
 		current_last->next = new;
 }

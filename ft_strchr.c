@@ -6,33 +6,31 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 12:42:48 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/15 13:22:17 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/27 15:38:11 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	Locates the first occurrence of c (converted to char) in the string
-	pointed to by s.
-
-	s:			string to examine
-	c:			character to find in s
-	returns:	pointer to located character or NULL if character is not
-				found in string	
+ * Locates the first occurrence of c (converted to char) in the string
+ * pointed to by s.
+ * 
+ * s:		string to examine
+ * c:		character to find in s
+ * returns:	pointer to located character or NULL if character is not
+ * 			found in string
 */
 char	*ft_strchr(const char *s, int c)
 {
-	size_t	len;
-	size_t	i;
+	size_t	len_byte;
 
-	len = ft_strlen(s);
-	i = 0;
-	while (i <= len)
+	len_byte = ft_strlen(s) + 1;
+	while (len_byte--)
 	{
-		if (*(s + i) == (char)(c))
-			return ((char *)(s + i));
-		i++;
+		if (*s == (char) c)
+			return ((char *) s);
+		s++;
 	}
 	return (NULL);
 }

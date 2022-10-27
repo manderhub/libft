@@ -6,25 +6,25 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:52:50 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/26 17:45:57 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/27 15:10:38 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	Determines whether character c is an elment of the set.
-
-	c:			character to be looked for
-	set:		set of trimmable characters
-	set_len:	number of elements in set
-	returns:	1 if c is in set; 0 if c is not in set
+ * Determines whether character c is an elment of the set.
+ * 
+ * c:		character to be looked for
+ * set:		set of trimmable characters
+ * set_len:	number of elements in set
+ * returns:	1 if c is in set; 0 if c is not in set
 */
 static int	ft_in_set(char c, char const *set)
 {
 	while (*set)
 	{
-		if (c == *(set))
+		if (c == *set)
 			return (1);
 		set++;
 	}
@@ -32,16 +32,15 @@ static int	ft_in_set(char c, char const *set)
 }
 
 /*
-	Calculates the number of trimmable characters at the beginning or 
-	the end of string s1.
-	
-	s1:			string
-	set:		set of trimmable characters
-	left:		search direction;
-				from left if non-zero; from right if zero
-	returns:	the number of trimmable characters at the beginning or
-				end of string s1
-	
+ * Calculates the number of trimmable characters at the beginning or 
+ * the end of string s1.
+ * 
+ * s1:		string
+ * set:		set of trimmable characters
+ * left:	search direction;
+ * 			from left if non-zero; from right if zero
+ * returns:	the number of trimmable characters at the beginning or
+ * 			end of string s1
 */
 static size_t	ft_num_trimmable(char const *s1, char const *set, int left)
 {
@@ -67,12 +66,12 @@ static size_t	ft_num_trimmable(char const *s1, char const *set, int left)
 }
 
 /*
-	Allocates and returns a copy of ’s1’ with the characters specified in
-	’set’ removed from the beginning and the end of the string.
-
-	s1:			string to be trimmed
-	set:		reference set of characters to trim
-	returns:	the trimmed string; NULL if allocation fails
+ * Allocates and returns a copy of 's1' with the characters specified in
+ * 'set' removed from the beginning and the end of the string.
+ * 
+ * s1:		string to be trimmed
+ * set:		reference set of characters to trim
+ * returns:	the trimmed string; NULL if allocation fails
 */
 char	*ft_strtrim(char const *s1, char const *set)
 {

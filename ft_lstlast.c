@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 16:14:42 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/25 16:19:40 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/27 13:09:31 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 */
 t_list	*ft_lstlast(t_list *lst)
 {
-	while (lst != NULL && lst->next != NULL)
+	while (lst && lst->next)
 	{
 		lst = lst->next;
 	}

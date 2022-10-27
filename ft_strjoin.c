@@ -6,19 +6,19 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 10:33:33 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/26 17:44:49 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/27 15:05:24 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	Allocates and returns a new string, which is the result of the
-	concatenation of ’s1’ and ’s2’.
-
-	s1:			prefix string
-	s2:			suffix string
-	returns:	the new concatenated string; NULL if allocation fails
+ * Allocates and returns a new string, which is the result of the
+ * concatenation of ’s1’ and ’s2’.
+ * 
+ * s1:			prefix string
+ * s2:			suffix string
+ * returns:	the new concatenated string; NULL if allocation fails
 */
 char	*ft_strjoin(char const *s1, char const *s2)
 {

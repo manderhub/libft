@@ -6,14 +6,12 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:50 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/26 15:39:27 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/27 15:25:32 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <string.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 

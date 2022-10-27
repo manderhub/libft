@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/26 11:04:37 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/26 11:22:27 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/27 13:07:36 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 */
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (lst == NULL || del == NULL)
+	if (!lst || !del)
 		return ;
-	(*del)(lst->content);
+	del(lst->content);
 	free(lst);
 }

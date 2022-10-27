@@ -6,21 +6,21 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 16:47:19 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/26 17:43:35 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/27 15:08:14 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	Allocates and returns a substring from the string s.
-	The substring begins at index start and is of maximum length len.
-	For non-negative len, the resulting string will be NUL-terminated.
-
-	s:			string from which to create the substring
-	start:		start index of the substring in the string s
-	len:		max length of the substring (excluding NUL byte)
-	returns:	the created substring; NULL if allocation fails
+ * Allocates and returns a substring from the string s.
+ * The substring begins at index start and is of maximum length len.
+ * For non-negative len, the resulting string will be NUL-terminated.
+ * 
+ * s:			string from which to create the substring
+ * start:		start index of the substring in the string s
+ * len:		max length of the substring (excluding NUL byte)
+ * returns:	the created substring; NULL if allocation fails
 */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
