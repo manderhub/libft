@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:20:05 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/19 23:09:11 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/27 15:59:36 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,5 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 			break ;
 		i++;
 	}
-	if ((unsigned char)*(s1 + i) < (unsigned char)*(s2 + i))
-		return (-1);
-	else if ((unsigned char)*(s1 + i) > (unsigned char)*(s2 + i))
-		return (1);
-	else
-		return (0);
+	return (*(unsigned char *)(s1 + i) - *(unsigned char *)(s2 + i));
 }
