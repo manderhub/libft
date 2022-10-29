@@ -6,13 +6,13 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/24 15:06:00 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/27 15:27:51 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/29 18:44:59 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-/*
+/**
  * Adds the node 'new' at the beginning of the list.
  * 
  * lst:	address of a pointer to the first link of a list
