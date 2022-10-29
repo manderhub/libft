@@ -6,15 +6,15 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/13 17:37:18 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/27 15:22:58 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/29 17:28:44 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
- * Copies up to dstsize - 1 characters from src string to dst buffer,
- * NUL terminating the result if dstsize is not 0.
+ * Copies up to dstsize - 1 characters from 'src' string to 'dst' buffer,
+ * NULL terminating the result if dstsize is not 0.
  * 
  * dst:		destination buffer
  * src:		string to be copied

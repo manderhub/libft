@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 12:36:44 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/27 15:04:17 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/29 17:06:22 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
  * Applies the function 'f' on each character of the string passed as argument,
- * passing its index as first argument.
+ * passing the character's index as first argument.
  * Each character is passed by address to 'f' to be modified if necessary.
  * 
  * s:	string on which to iterate

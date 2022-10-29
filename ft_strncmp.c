@@ -6,22 +6,22 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 17:20:05 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/27 15:59:36 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/29 17:34:40 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
-	Compares two strings lexicographically.
-	Only compares a maximum of n characters.
-	Characters that appear after the first '\0' are not compared.
-
-	s1:	first string
-	s2:	second string
-	n:	number of characters to be compared
-	returns	1, 0 or -1 depending on whether s1 is greater than,
-			equal to or less than s2
+ * Compares two strings lexicographically.
+ * Only compares a maximum of n characters.
+ * Characters that appear after the first '\0' are not compared.
+ * 
+ * s1:		first string
+ * s2:		second string
+ * n:		number of characters to be compared
+ * returns:	a value >0, =0 or <0 depending on whether s1 is greater than,
+ * 			equal to or less than s2
 */
 int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {

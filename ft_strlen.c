@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 16:45:41 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/27 15:22:16 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/29 17:29:45 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 /*
  * Counts the number of characters in the parameterized string, 
- * Not counting the terminating NUL byte.
+ * Not counting the terminating NULL byte.
  * Function is not protected. This is in line with the standard strlen.
  * 
  * s:		the string for which the number of characters is counted

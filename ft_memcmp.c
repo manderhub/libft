@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 13:45:17 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/27 13:32:54 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/29 16:22:20 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 /*
 	Compares byte string s1 against byte string s2.
 	Both strings are assumed to be n bytes long.
-	Comparison does not stop when NUL byte is encountered.
+	Comparison does not stop when NULL byte is encountered.
 	Zero-length strings are always identical.
 
 	s1:			first byte string

@@ -6,12 +6,18 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 10:05:09 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/27 12:40:12 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/29 16:39:31 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
+/**
+ * Calculates the number of digits in 'n'.
+ * 
+ * n:		integer number
+ * returns:	number of digits in n
+*/
 size_t	calc_len(int n)
 {
 	size_t	len;
@@ -31,7 +37,7 @@ size_t	calc_len(int n)
  * Allocates and returns a string representing the integer received as
  * an argument. Negative numbers are handled.
  * 
- * n:			integer to be converted to a string
+ * n:		integer to be converted to a string
  * returns:	string representing the integer; NULL if allocation fails
 */
 char	*ft_itoa(int n)

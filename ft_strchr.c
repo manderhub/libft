@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 12:42:48 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/27 15:38:11 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/29 17:04:13 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 /*
  * Locates the first occurrence of c (converted to char) in the string
  * pointed to by s.
+ * The terminating NULL character is considered part of the string.
+ * Therefore if c is '\0', the function locates the terminating '\0'.
  * 
  * s:		string to examine
  * c:		character to find in s
