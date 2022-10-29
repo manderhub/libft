@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/22 21:43:01 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/27 14:53:42 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/29 17:18:10 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,6 @@ static void	*cleanup(char **p)
 	return (NULL);
 }
 
-static char	**null_terminate(char **pptr, size_t index)
-{
-	*(pptr + index) = NULL;
-	return (pptr);
-}
-
 /*
  * Allocates and returns an array of strings obtained by splitting 's' using
  * the character 'c' as a delimiter. The array must end with a NULL pointer.
@@ -81,7 +75,7 @@ char	**ft_split(char const *s, char c)
 
 	if (!s)
 		return (NULL);
-	result = malloc(sizeof(*result) * (count_words(s, c) + 1));
+	result = ft_calloc(count_words(s, c) + 1, sizeof(*result));
 	if (!result)
 		return (NULL);
 	i = 0;
@@ -99,5 +93,5 @@ char	**ft_split(char const *s, char c)
 		}
 		s++;
 	}
-	return (null_terminate(result, i));
+	return (result);
 }
