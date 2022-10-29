@@ -6,20 +6,20 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/16 16:47:19 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/27 15:08:14 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/29 17:41:53 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 /*
- * Allocates and returns a substring from the string s.
- * The substring begins at index start and is of maximum length len.
- * For non-negative len, the resulting string will be NUL-terminated.
+ * Allocates and returns a substring from the string 's'.
+ * The substring begins at index 'start' and is of maximum length 'len'.
+ * For non-negative 'len', the resulting string will be NULL-terminated.
  * 
- * s:			string from which to create the substring
- * start:		start index of the substring in the string s
- * len:		max length of the substring (excluding NUL byte)
+ * s:		string from which to create the substring
+ * start:	start index of the substring in the string 's'
+ * len:		max length of the substring (excluding NULL byte)
  * returns:	the created substring; NULL if allocation fails
 */
 char	*ft_substr(char const *s, unsigned int start, size_t len)
@@ -35,7 +35,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		len = 0;
 	else if (start + len > s_len)
 		len = s_len - start;
-	substring = malloc((len + 1) * sizeof(*substring));
+	substring = ft_calloc(len + 1, sizeof(*substring));
 	if (!substring)
 		return (NULL);
 	i = 0;
@@ -44,6 +44,5 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		*(substring + i) = *(s + start + i);
 		i++;
 	}
-	*(substring + i) = '\0';
 	return (substring);
 }
