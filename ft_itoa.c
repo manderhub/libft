@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/18 10:05:09 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/29 16:39:31 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/29 18:43:20 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
  * n:		integer number
  * returns:	number of digits in n
 */
-size_t	calc_len(int n)
+static size_t	calc_len(int n)
 {
 	size_t	len;
 
