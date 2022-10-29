@@ -6,7 +6,7 @@
 /*   By: manderhu <manderhu@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/15 15:23:30 by manderhu          #+#    #+#             */
-/*   Updated: 2022/10/27 11:52:50 by manderhu         ###   ########.fr       */
+/*   Updated: 2022/10/29 15:16:15 by manderhu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,12 +27,12 @@ static int	ft_is_space(char c)
 /*
  * Converts the initial portion of the string 'str' to an int representation.
  * Skips all whitespace characters in the beginning.
- * Largest/smallest representable values are MIN/MAX values of long
- * data type.
+ * Uses long data type internally, but int overflow occurrs if 'str' is
+ * not representable as int.
  * 
  * str:		string to be converted to int
  * returns:	int respresentation of the initial portion of str;
- * 			in case of overflow, -1 for positive and 0 for 
+ * 			in case of long overflow, -1 for positive and 0 for 
  * 			negative numbers
 */
 int	ft_atoi(const char *str)
@@ -61,5 +61,5 @@ int	ft_atoi(const char *str)
 		}
 		str++;
 	}
-	return (result * sign);
+	return ((int)(result * sign));
 }
